@@ -9,9 +9,16 @@ function init() {
   // variable for the dropdown that selects type of horn
   const horn_selector = document.getElementById('horn-select');
 
+  // variable for the volume slider
+  const volume_slider = document.getElementById('volume');
+
   // when horn is changed, pass the name to changeImageAndAudio function
   horn_selector.onchange = function () {
     changeImageAndAudio(horn_selector.value);
+  }
+
+  volume_slider.onchange = function() {
+    alert(volume_slider.value);
   }
 
 }
