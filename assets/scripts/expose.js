@@ -19,6 +19,7 @@ function init() {
 
   volume_slider.onchange = function() {
     changeVolume(volume_slider.value);
+    updateVolumeImage(volume_slider.value);
   }
 
 }
@@ -54,4 +55,20 @@ function changeVolume(slider_value){
 
   horn_audio.volume = slider_value/100;
 
+}
+
+function updateVolumeImage(slider_value){
+
+    // get center image using the alt (theres no id so idk a better way)
+    var vol_img = document.querySelector('img[alt="Volume level 2"]');
+
+    if (slider_value == 0) {
+      vol_img.src = "assets/icons/volume-level-0.svg";
+    } else if (slider_value < 33) {
+      vol_img.src = "assets/icons/volume-level-1.svg";
+    } else if (slider_value < 67) {
+      vol_img.src = "assets/icons/volume-level-2.svg";
+    } else {
+      vol_img.src = "assets/icons/volume-level-3.svg";
+    }
 }
