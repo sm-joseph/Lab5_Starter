@@ -9,24 +9,33 @@ function init() {
   // variable for the dropdown that selects type of horn
   const horn_selector = document.getElementById('horn-select');
 
-  horn_selector.onchange = function() {
-    changeImage(horn_selector.value);
+  // when horn is changed, pass the name to changeImageAndAudio function
+  horn_selector.onchange = function () {
+    changeImageAndAudio(horn_selector.value);
   }
 
 }
 
-function changeImage(horn_name) {
+function changeImageAndAudio(horn_name) {
+  // get center image using the alt (theres no id so idk a better way)
   var center_img = document.querySelector('img[alt="No image selected"]');
+
+  // get audio element (it's the only one with this class so its ok)
+  var horn_audio = document.getElementsByClassName('hidden');
   
-  switch(horn_name) {
+  // change image/audio source based on passed horn name
+  switch (horn_name) {
     case 'air-horn':
       center_img.src = "assets/images/air-horn.svg";
+      horn_audio.src = "assets/audio/air-horn.mp3"
       break;
     case 'car-horn':
       center_img.src = "assets/images/car-horn.svg";
+      horn_audio.src = "assets/audio/car-horn.mp3"
       break;
     case 'party-horn':
       center_img.src = "assets/images/party-horn.svg";
+      horn_audio.src = "assets/audio/party-horn.mp3"
       break;
-  } 
+  }
 }
