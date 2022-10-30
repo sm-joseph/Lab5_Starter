@@ -5,9 +5,6 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
 
-  // initialize confetti
-  const jsConfetti = new JSConfetti();
-
   // variables for adjustment buttons/sliders/selectors
   const horn_selector = document.getElementById('horn-select');
   const volume_slider = document.getElementById('volume');
@@ -15,6 +12,9 @@ function init() {
 
   // audio element (NOTE: this returns an array so [0] is used to get the only element)
   var horn_audio = document.getElementsByClassName('hidden')[0];
+
+  // you've heard of spaghetti code now get ready for confetti code
+  const jsConfetti = new JSConfetti();
 
   // when horn type is changed
   horn_selector.oninput = function () {
@@ -58,16 +58,18 @@ function init() {
     }
   }
 
-  // simple enough, just play audio on click and confetti if its a party
   play_button.onclick = function () {
+    // play audio on button click
     horn_audio.play();
-    if(horn_selector.value == 'party-horn') {
+
+    // throw confetti if it's a party horn
+    if (horn_selector.value == 'party-horn') {
       jsConfetti.addConfetti({
         emojis: ['🥺', '😨', '🤪', '😐'],
         emojiSize: 45,
         confettiNumber: 125,
       })
-    } 
+    }
   }
 }
 
