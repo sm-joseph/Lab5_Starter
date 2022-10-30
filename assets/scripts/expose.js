@@ -61,7 +61,13 @@ function init() {
   // simple enough, just play audio on click and confetti if its a party
   play_button.onclick = function () {
     horn_audio.play();
-    if(horn_selector.value == 'party-horn') jsConfetti.addConfetti();
+    if(horn_selector.value == 'party-horn') {
+      jsConfetti.addConfetti({
+        emojis: ['🥺', '😨', '🤪', '😐'],
+        emojiSize: 45,
+        confettiNumber: 125,
+      })
+    } 
   }
 }
 
