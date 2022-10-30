@@ -18,7 +18,7 @@ function init() {
   }
 
   volume_slider.onchange = function() {
-    alert(volume_slider.value);
+    changeVolume(volume_slider.value);
   }
 
 }
@@ -45,4 +45,13 @@ function changeImageAndAudio(horn_name) {
       horn_audio.src = "assets/audio/party-horn.mp3"
       break;
   }
+}
+
+function changeVolume(slider_value){
+
+  // get audio element (NOTE: this returns an array so [0] is used to get the only element)
+  var horn_audio = document.getElementsByClassName('hidden')[0];
+
+  horn_audio.volume = slider_value/100;
+
 }
