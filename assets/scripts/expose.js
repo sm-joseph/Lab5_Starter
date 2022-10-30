@@ -13,11 +13,11 @@ function init() {
   const volume_slider = document.getElementById('volume');
 
   // when horn is changed, pass the name to changeImageAndAudio function
-  horn_selector.onchange = function () {
+  horn_selector.oninput = function () {
     changeImageAndAudio(horn_selector.value);
   }
 
-  volume_slider.onchange = function() {
+  volume_slider.oninput = function() {
     changeVolume(volume_slider.value);
     updateVolumeImage(volume_slider.value);
   }
