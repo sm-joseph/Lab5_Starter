@@ -58,10 +58,10 @@ function init() {
     }
   }
 
-  // simple enough, just play audio on click
+  // simple enough, just play audio on click and confetti if its a party
   play_button.onclick = function () {
     horn_audio.play();
-    jsConfetti.addConfetti();
+    if(horn_selector.value == 'party-horn') jsConfetti.addConfetti();
   }
 }
 
