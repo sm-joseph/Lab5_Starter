@@ -27,8 +27,8 @@ function changeImageAndAudio(horn_name) {
   // get center image using the alt (theres no id so idk a better way)
   var center_img = document.querySelector('img[alt="No image selected"]');
 
-  // get audio element (it's the only one with this class so its ok)
-  var horn_audio = document.getElementsByClassName('hidden');
+  // get audio element (NOTE: this returns an array so [0] is used to get the only element)
+  var horn_audio = document.getElementsByClassName('hidden')[0];
   
   // change image/audio source based on passed horn name
   switch (horn_name) {
