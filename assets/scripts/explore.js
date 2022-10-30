@@ -5,11 +5,23 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   // TODO
   const synth = window.speechSynthesis;
-  const voices = synth.getVoices();
 
   var voice_selection = document.getElementById("voice-select");
-  var option = document.createElement("option");
-  option.text = voices[0].name;
-  voice_selection.add(option);
+
+  synth.addEventListener('voiceschanged', () => {
+    const voices = synth.getVoices();
+    for (let i = 0; i < voices.length; i++) {
+      const option = document.createElement('option');
+      option.text = voices[i].name;
+
+      voice_selection.add(option);
+    }
+  });
+
 
 }
+
+
+
+
+
