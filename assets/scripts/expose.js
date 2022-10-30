@@ -12,6 +12,9 @@ function init() {
   // variable for the volume slider
   const volume_slider = document.getElementById('volume');
 
+  // variable for the play button
+  const play_button = document.querySelector("button");
+
   // when horn is changed, pass the name to changeImageAndAudio function
   horn_selector.oninput = function () {
     changeImageAndAudio(horn_selector.value);
@@ -20,6 +23,13 @@ function init() {
   volume_slider.oninput = function() {
     changeVolume(volume_slider.value);
     updateVolumeImage(volume_slider.value);
+  }
+
+  play_button.onclick = function() {
+    alert('played');
+    // get audio element (NOTE: this returns an array so [0] is used to get the only element)
+    var horn_audio = document.getElementsByClassName('hidden')[0];
+    horn_audio.play();
   }
 
 }
