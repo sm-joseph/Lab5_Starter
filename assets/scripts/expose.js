@@ -4,6 +4,10 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
+
+  // initialize confetti
+  const jsConfetti = new JSConfetti();
+
   // variables for adjustment buttons/sliders/selectors
   const horn_selector = document.getElementById('horn-select');
   const volume_slider = document.getElementById('volume');
@@ -57,6 +61,7 @@ function init() {
   // simple enough, just play audio on click
   play_button.onclick = function () {
     horn_audio.play();
+    jsConfetti.addConfetti();
   }
 }
 
