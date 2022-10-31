@@ -28,11 +28,11 @@ function init() {
     const utterThis = new SpeechSynthesisUtterance(inputForm.value);
     const selectedOption = voice_selection.selectedOptions[0].text;
     //alert(selectedOption);
-    //for (let i = 0; i < voices.length; i++) {
-    //  if (voices[i].name === selectedOption) {
-        utterThis.voice = voices[0];
-    //  }
-    //}
+    for (let i = 0; i < voices.length; i++) {
+      if (voices[i].name === selectedOption) {
+        utterThis.voice = voices[i];
+      }
+    }
     //utterThis.pitch = pitch.value;
     //utterThis.rate = rate.value;
     synth.speak(utterThis);
