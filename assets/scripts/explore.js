@@ -23,6 +23,19 @@ function init() {
 
   play_button.onclick = function () {
     alert(inputForm.value);
+
+    const utterThis = new SpeechSynthesisUtterance(inputForm.value);
+    //const selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+    //for (let i = 0; i < voices.length; i++) {
+    //  if (voices[i].name === selectedOption) {
+        //utterThis.voice = voices[0];
+    //  }
+    //}
+    //utterThis.pitch = pitch.value;
+    //utterThis.rate = rate.value;
+    synth.speak(utterThis);
+
+    //inputTxt.blur();
   }
 
 
