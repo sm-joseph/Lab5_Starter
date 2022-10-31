@@ -23,21 +23,19 @@ function init() {
   var inputForm = document.getElementById('text-to-speak');
 
   play_button.onclick = function () {
-    //alert(inputForm.value);
-
+    
     const utterThis = new SpeechSynthesisUtterance(inputForm.value);
     const selectedOption = voice_selection.selectedOptions[0].text;
-    //alert(selectedOption);
+    
+    if (selectedOption === voice_selection[0].text) return;
+    
     for (let i = 0; i < voices.length; i++) {
       if (voices[i].name === selectedOption) {
         utterThis.voice = voices[i];
       }
     }
-    //utterThis.pitch = pitch.value;
-    //utterThis.rate = rate.value;
     synth.speak(utterThis);
 
-    //inputTxt.blur();
   }
 
 
