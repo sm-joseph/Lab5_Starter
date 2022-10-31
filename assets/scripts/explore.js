@@ -6,11 +6,12 @@ function init() {
   // TODO
   const synth = window.speechSynthesis;
   const play_button = document.querySelector("button");
+  var voices = [];
 
   var voice_selection = document.getElementById("voice-select");
 
   synth.addEventListener('voiceschanged', () => {
-    const voices = synth.getVoices();
+    voices = synth.getVoices();
     for (let i = 0; i < voices.length; i++) {
       const option = document.createElement('option');
       option.text = voices[i].name;
@@ -22,13 +23,14 @@ function init() {
   var inputForm = document.getElementById('text-to-speak');
 
   play_button.onclick = function () {
-    alert(inputForm.value);
+    //alert(inputForm.value);
 
     const utterThis = new SpeechSynthesisUtterance(inputForm.value);
-    //const selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+    const selectedOption = voice_selection.selectedOptions[0].text;
+    //alert(selectedOption);
     //for (let i = 0; i < voices.length; i++) {
     //  if (voices[i].name === selectedOption) {
-        //utterThis.voice = voices[0];
+        utterThis.voice = voices[0];
     //  }
     //}
     //utterThis.pitch = pitch.value;
