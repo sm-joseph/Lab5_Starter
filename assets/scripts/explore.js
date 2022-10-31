@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   // TODO
   const synth = window.speechSynthesis;
+  const play_button = document.querySelector("button");
 
   var voice_selection = document.getElementById("voice-select");
 
@@ -17,6 +18,14 @@ function init() {
       voice_selection.add(option);
     }
   });
+
+  var inputForm = document.getElementById('text-to-speak');
+
+  play_button.onclick = function () {
+    alert(inputForm.value);
+  }
+
+
 
 
 }
